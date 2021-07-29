@@ -1,8 +1,11 @@
-import {Button} from "../components";
-import {cart, pizzaLogo} from "../assets";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {cart, pizzaLogo} from "../assets";
+import {Button} from "../components";
 
 export default function Header() {
+  const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+
   return (
     <div className="header">
       <div className="container">
@@ -18,10 +21,10 @@ export default function Header() {
         <div className="header__cart">
           <Link to="/cart">
             <Button className="button--cart">
-              <span>{555} ₽</span>
+              <span>{totalPrice} ₽</span>
               <div className="button__delimiter" />
               <img src={cart} alt={cart} />
-              <span>3</span>
+              <span>{totalCount}</span>
             </Button>
           </Link>
         </div>

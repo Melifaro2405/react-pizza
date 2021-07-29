@@ -3,7 +3,7 @@ import actionTypes from "../actions/actionTypes";
 const initialState = {
   category: 0,
   sortBy: {
-    type: 'popular',
+    type: 'default',
     order: 'desc'
   }
 };
